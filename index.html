@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Ambiente de Oficina · Español Laboral · Coca-Cola</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --black: #0A0A0A; --black-soft: #141414; --black-card: #1A1A1A; --black-elevated: #212121;
+  --red: #E4002B; --red-dark: #A80020; --red-glow: rgba(228, 0, 43, 0.4);
+  --gold: #D4AF37; --gold-light: #F0D77B; --gold-dark: #A8871C;
+  --gold-shimmer: linear-gradient(135deg, #F0D77B 0%, #D4AF37 35%, #A8871C 65%, #D4AF37 100%);
+  --cream: #F5E6D3; --cream-soft: #C9BCA5; --cream-muted: #8A8070;
+  --border-subtle: rgba(212, 175, 55, 0.15); --border-gold: rgba(212, 175, 55, 0.35);
+}
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: 'Inter', sans-serif; background: var(--black); color: var(--cream);
+  line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; position: relative;
+}
+body::before {
+  content: ''; position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  opacity: 0.035; pointer-events: none; z-index: 9999; mix-blend-mode: overlay;
+}
+
+/* NAVBAR */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; height: 72px;
+  background: rgba(10, 10, 10, 0.85); backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 32px; z-index: 1000; transition: all 0.3s ease;
+}
+.nav.scrolled { border-bottom-color: var(--border-gold); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); }
+.nav-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+.brand-mark {
+  width: 40px; height: 40px; border-radius: 50%; background: var(--gold-shimmer);
+  display: grid; place-items: center; font-family: 'Great Vibes', cursive;
+  font-size: 20px; color: var(--black); font-weight: 700;
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4); animation: glow 3s ease-in-out infinite;
+}
+@keyframes glow {
+  0%, 100% { box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4); }
+  50% { box-shadow: 0 4px 30px rgba(212, 175, 55, 0.8); }
+}
+.brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+.brand-text small { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+.brand-text strong { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 700; color: var(--cream); }
+.nav-links { display: flex; gap: 6px; align-items: center; list-style: none; }
+.nav-links a { color: var(--cream-soft); text-decoration: none; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 8px 12px; border-radius: 100px; transition: all 0.2s; }
+.nav-links a:hover { color: var(--gold); background: rgba(212, 175, 55, 0.08); }
+.nav-xp { display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 100px; background: rgba(212, 175, 55, 0.1); border: 1px solid var(--border-gold); font-size: 13px; font-weight: 800; color: var(--gold); transition: transform 0.3s; }
+.nav-xp.bump { animation: xpBump 0.5s; }
+@keyframes xpBump { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* HERO */
+.hero { min-height: 100vh; position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 140px 24px 100px; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -20%; left: 50%; transform: translateX(-50%); width: 1000px; height: 1000px; border-radius: 50%; background: radial-gradient(circle, rgba(228, 0, 43, 0.18) 0%, transparent 60%); pointer-events: none; animation: pulseGlow 8s ease-in-out infinite; }
+@keyframes pulseGlow { 0%, 100% { opacity: 0.8; transform: translateX(-50%) scale(1); } 50% { opacity: 1; transform: translateX(-50%) scale(1.15); } }
+.hero::after { content: ''; position: absolute; bottom: -300px; right: -200px; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 65%); pointer-events: none; }
+.hero-badge { display: inline-flex; align-items: center; gap: 10px; padding: 10px 24px; border-radius: 100px; background: rgba(212, 175, 55, 0.08); border: 1px solid var(--border-gold); font-size: 11px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 32px; position: relative; z-index: 2; animation: fadeInUp 0.8s ease both; }
+.hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--red); box-shadow: 0 0 12px var(--red); animation: pulseDot 2s infinite; }
+@keyframes pulseDot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(0.8); } }
+.hero h1 { font-family: 'Great Vibes', cursive; font-size: clamp(60px, 12vw, 160px); line-height: 0.95; background: var(--gold-shimmer); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 8px 30px rgba(212, 175, 55, 0.4)); margin-bottom: 16px; position: relative; z-index: 2; animation: fadeInUp 0.9s ease 0.1s both; padding-bottom: 20px; }
+.hero h1 .line2 { display: block; font-size: 0.65em; font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600; letter-spacing: 0.02em; margin-top: 6px; }
+.hero-sub { font-family: 'Cormorant Garamond', serif; font-size: clamp(18px, 2.2vw, 26px); font-style: italic; color: var(--cream-soft); max-width: 720px; line-height: 1.5; margin-bottom: 40px; position: relative; z-index: 2; animation: fadeInUp 0.9s ease 0.2s both; }
+.hero-context { display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; margin-bottom: 48px; position: relative; z-index: 2; animation: fadeInUp 0.9s ease 0.3s both; }
+.context-pill { padding: 8px 18px; border-radius: 100px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); font-size: 12px; font-weight: 600; color: var(--cream-soft); letter-spacing: 0.03em; }
+.context-pill.red { background: rgba(228, 0, 43, 0.15); border-color: rgba(228, 0, 43, 0.4); color: #FF6B7A; }
+.context-pill.gold { background: rgba(212, 175, 55, 0.12); border-color: var(--border-gold); color: var(--gold); }
+.hero-cta { display: inline-flex; align-items: center; gap: 12px; padding: 20px 44px; border-radius: 100px; background: var(--gold-shimmer); color: var(--black); font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; border: none; cursor: pointer; box-shadow: 0 16px 50px rgba(212, 175, 55, 0.4); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; z-index: 2; animation: fadeInUp 0.9s ease 0.4s both; text-decoration: none; }
+.hero-cta:hover { transform: translateY(-4px); box-shadow: 0 24px 70px rgba(212, 175, 55, 0.55); }
+.hero-cta .arrow { transition: transform 0.3s; }
+.hero-cta:hover .arrow { transform: translateX(6px); }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.hero-float { position: absolute; font-size: 60px; opacity: 0.06; pointer-events: none; animation: float 20s ease-in-out infinite; }
+.hero-float.f1 { top: 15%; left: 8%; animation-delay: 0s; }
+.hero-float.f2 { top: 65%; right: 10%; animation-delay: 5s; font-size: 80px; }
+.hero-float.f3 { bottom: 15%; left: 15%; animation-delay: 10s; font-size: 50px; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-40px) rotate(8deg); } }
+
+/* SECTION */
+.section { padding: 100px 32px; max-width: 1280px; margin: 0 auto; position: relative; }
+.section-head { text-align: center; max-width: 820px; margin: 0 auto 64px; }
+.section-eyebrow { display: inline-block; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 0.3em; text-transform: uppercase; color: var(--red); padding: 8px 20px; border-radius: 100px; background: rgba(228, 0, 43, 0.1); border: 1px solid rgba(228, 0, 43, 0.25); margin-bottom: 20px; }
+.section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 64px); font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; color: var(--cream); margin-bottom: 20px; }
+.section-title .script { font-family: 'Great Vibes', cursive; background: var(--gold-shimmer); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-weight: 400; font-size: 1.25em; display: inline-block; line-height: 0.9; filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.3)); margin: 0 4px; }
+.section-sub { font-size: 17px; color: var(--cream-soft); max-width: 640px; margin: 0 auto; line-height: 1.7; }
+.section-sub strong { color: var(--gold); font-weight: 600; }
+
+/* CONTEXT STRIP */
+.context-strip { background: linear-gradient(135deg, var(--black-soft), var(--black)); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); padding: 40px 32px; position: relative; }
+.context-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap; text-align: center; }
+.context-item { display: flex; align-items: center; gap: 12px; }
+.context-item-icon { width: 44px; height: 44px; border-radius: 12px; background: rgba(212, 175, 55, 0.1); border: 1px solid var(--border-gold); display: grid; place-items: center; font-size: 20px; }
+.context-item-text { text-align: left; }
+.context-item-label { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream-muted); margin-bottom: 2px; }
+.context-item-value { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 700; color: var(--cream); }
+
+/* TABS */
+.vocab-tabs { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 48px; }
+.vocab-tab { display: flex; align-items: center; gap: 10px; padding: 14px 24px; border-radius: 100px; background: var(--black-card); border: 1.5px solid var(--border-subtle); color: var(--cream-soft); font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.03em; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); white-space: nowrap; }
+.vocab-tab:hover { border-color: var(--border-gold); color: var(--gold); transform: translateY(-2px); }
+.vocab-tab.active { background: var(--red); border-color: var(--red); color: white; box-shadow: 0 12px 40px var(--red-glow); }
+.vocab-tab .tab-icon { font-size: 18px; }
+.vocab-tab .tab-count { background: rgba(255, 255, 255, 0.15); padding: 2px 8px; border-radius: 100px; font-size: 11px; font-weight: 700; }
+.vocab-tab.active .tab-count { background: rgba(255, 255, 255, 0.25); }
+
+/* VOCAB PANELS */
+.vocab-panel { display: none; }
+.vocab-panel.active { display: block; animation: fadeInUp 0.5s ease both; }
+.vocab-area-header { text-align: center; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 1px solid var(--border-subtle); }
+.vocab-area-icon { font-size: 56px; margin-bottom: 12px; filter: drop-shadow(0 8px 20px rgba(212, 175, 55, 0.3)); }
+.vocab-area-title { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 700; color: var(--cream); margin-bottom: 6px; }
+.vocab-area-desc { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; color: var(--cream-muted); }
+.vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+
+/* WORD CARD */
+.word-card { background: var(--black-card); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 18px; padding: 24px 22px 20px; position: relative; overflow: hidden; cursor: pointer; transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
+.word-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(212, 175, 55, 0.06), transparent 60%); opacity: 0; transition: opacity 0.35s; pointer-events: none; }
+.word-card:hover { transform: translateY(-4px); border-color: var(--border-gold); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--border-gold); }
+.word-card:hover::before { opacity: 1; }
+.word-card.learned { border-color: rgba(46, 204, 113, 0.4); }
+.word-card.learned::after { content: '✓'; position: absolute; top: 14px; right: 14px; width: 24px; height: 24px; border-radius: 50%; background: rgba(46, 204, 113, 0.9); color: white; display: grid; place-items: center; font-size: 13px; font-weight: 900; }
+.word-emoji { font-size: 44px; line-height: 1; margin-bottom: 14px; filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3)); transition: transform 0.35s; }
+.word-card:hover .word-emoji { transform: scale(1.1) rotate(-4deg); }
+.word-es { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; color: var(--cream); line-height: 1.2; margin-bottom: 6px; }
+.word-es .article { color: var(--red); font-family: 'Inter', sans-serif; font-size: 0.75em; font-weight: 800; letter-spacing: 0.05em; padding: 2px 8px; background: rgba(228, 0, 43, 0.15); border-radius: 6px; margin-right: 6px; display: inline-block; vertical-align: middle; text-transform: lowercase; }
+.word-es .article.fem { background: rgba(228, 0, 43, 0.2); color: #FF6B7A; }
+.word-es .article.masc { background: rgba(212, 175, 55, 0.18); color: var(--gold-light); }
+.word-pt { font-size: 13px; color: var(--cream-muted); font-style: italic; margin-bottom: 14px; }
+.word-phon { display: inline-flex; align-items: center; gap: 8px; font-family: 'Space Grotesk', monospace; font-size: 12px; font-weight: 600; color: var(--gold); padding: 6px 12px; background: rgba(212, 175, 55, 0.08); border-radius: 100px; border: 1px solid rgba(212, 175, 55, 0.15); margin-bottom: 16px; }
+.word-phon::before { content: '🔊'; font-size: 12px; }
+.word-actions { display: flex; gap: 8px; padding-top: 12px; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+.word-play-btn { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 14px; border-radius: 10px; background: rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.25); color: var(--gold); font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+.word-play-btn:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
+.word-play-btn.slow { flex: 0 0 auto; padding: 10px 12px; }
+.word-play-btn.slow:hover { background: var(--red); color: white; border-color: var(--red); }
+
+/* FUN FACT / SABIAS QUE */
+.fun-fact { display: flex; gap: 14px; align-items: flex-start; background: linear-gradient(135deg, rgba(212, 175, 55, 0.08), rgba(228, 0, 43, 0.05)); border: 1px solid var(--border-gold); border-radius: 16px; padding: 20px 24px; margin-bottom: 40px; position: relative; overflow: hidden; animation: pulseBorder 4s ease-in-out infinite; }
+@keyframes pulseBorder { 0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.2); } 50% { box-shadow: 0 0 0 8px rgba(212, 175, 55, 0); } }
+.fun-fact-icon { font-size: 32px; flex-shrink: 0; animation: wiggle 3s ease-in-out infinite; }
+@keyframes wiggle { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-8deg); } 75% { transform: rotate(8deg); } }
+.fun-fact-text { flex: 1; }
+.fun-fact-label { font-size: 11px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+.fun-fact-content { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-style: italic; color: var(--cream-soft); line-height: 1.5; }
+.fun-fact-content strong { color: var(--gold-light); font-style: normal; }
+
+/* FALSOS AMIGOS */
+.falsos-section { background: linear-gradient(135deg, var(--black-soft), var(--black)); max-width: none; padding-left: 0; padding-right: 0; }
+.falsos-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+.falsos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+.falso-card { perspective: 1200px; height: 280px; cursor: pointer; }
+.falso-inner { position: relative; width: 100%; height: 100%; transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1); transform-style: preserve-3d; }
+.falso-card.flipped .falso-inner { transform: rotateY(180deg); }
+.falso-front, .falso-back { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 20px; padding: 28px 24px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
+.falso-front { background: linear-gradient(135deg, #2A1A1A, #1A0A0A); border: 2px solid var(--red); box-shadow: 0 20px 60px rgba(228, 0, 43, 0.25); }
+.falso-front::before { content: '🤔'; position: absolute; top: 16px; right: 16px; font-size: 32px; opacity: 0.3; }
+.falso-front-label { font-size: 10px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
+.falso-front-word { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 700; color: var(--cream); line-height: 1; margin-bottom: 12px; }
+.falso-front-question { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; color: var(--cream-soft); }
+.falso-front-hint { font-size: 11px; color: var(--cream-muted); letter-spacing: 0.05em; margin-top: auto; }
+.falso-front-hint::before { content: '👆 '; }
+.falso-back { background: linear-gradient(135deg, #0A2015, #051008); border: 2px solid var(--gold); box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3); transform: rotateY(180deg); }
+.falso-back-label { font-size: 10px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.falso-back-meaning { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 700; color: var(--gold-light); line-height: 1.15; margin-bottom: 10px; }
+.falso-back-not { font-size: 12px; color: #FF6B7A; font-weight: 700; margin-bottom: 12px; padding: 4px 10px; background: rgba(228, 0, 43, 0.15); border-radius: 100px; display: inline-block; width: fit-content; }
+.falso-back-not::before { content: '❌ NO es '; }
+.falso-back-example { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 15px; color: var(--cream-soft); line-height: 1.5; padding: 12px 14px; background: rgba(0, 0, 0, 0.3); border-radius: 10px; border-left: 3px solid var(--gold); }
+.falso-back-example strong { color: var(--gold); font-style: normal; }
+
+/* ROLE PLAY */
+.roleplay-container { max-width: 1000px; margin: 0 auto; }
+.roleplay-scenario { background: var(--black-soft); border: 1px solid var(--border-subtle); border-radius: 24px; padding: 32px; margin-bottom: 28px; position: relative; overflow: hidden; transition: all 0.3s; }
+.roleplay-scenario:hover { border-color: var(--border-gold); box-shadow: 0 20px 60px rgba(212, 175, 55, 0.15); }
+.roleplay-scenario::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gold-shimmer); }
+.scenario-head { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; padding-bottom: 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+.scenario-num { width: 48px; height: 48px; border-radius: 50%; background: var(--gold-shimmer); color: var(--black); display: grid; place-items: center; font-family: 'Great Vibes', cursive; font-size: 26px; font-weight: 700; flex-shrink: 0; box-shadow: 0 8px 24px rgba(212, 175, 55, 0.35); }
+.scenario-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 700; color: var(--cream); line-height: 1.2; margin-bottom: 4px; }
+.scenario-context { font-size: 12px; color: var(--cream-muted); font-style: italic; }
+.scenario-location { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); margin-bottom: 20px; display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 100px; background: rgba(228, 0, 43, 0.1); border: 1px solid rgba(228, 0, 43, 0.25); }
+.dialogue { display: flex; flex-direction: column; gap: 16px; }
+.dialogue-msg { display: flex; gap: 14px; align-items: flex-start; }
+.dialogue-avatar { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font-size: 14px; font-weight: 900; flex-shrink: 0; border: 2px solid; }
+.dialogue-avatar.pedro { background: rgba(228, 0, 43, 0.15); border-color: var(--red); color: #FF6B7A; }
+.dialogue-avatar.colleague { background: rgba(212, 175, 55, 0.1); border-color: var(--gold); color: var(--gold); }
+.dialogue-bubble { flex: 1; background: var(--black-card); border: 1px solid rgba(255, 255, 255, 0.06); padding: 14px 18px; border-radius: 14px; border-top-left-radius: 4px; font-size: 15px; line-height: 1.6; color: var(--cream-soft); }
+.dialogue-msg.pedro .dialogue-bubble { background: rgba(228, 0, 43, 0.08); border-color: rgba(228, 0, 43, 0.2); }
+.dialogue-speaker { font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+.dialogue-msg.pedro .dialogue-speaker { color: #FF6B7A; }
+.dialogue-bubble .vocab-word { color: var(--gold); font-weight: 700; padding: 2px 6px; margin: 0 1px; border-radius: 4px; background: rgba(212, 175, 55, 0.1); cursor: pointer; transition: all 0.2s; border-bottom: 1px dashed var(--gold); display: inline-block; line-height: 1.3; }
+.dialogue-bubble .vocab-word:hover { background: var(--gold); color: var(--black); transform: translateY(-1px); border-bottom-style: solid; }
+
+/* TOOLTIP */
+.vocab-tooltip { position: fixed; background: var(--black); border: 1px solid var(--gold); padding: 10px 14px; border-radius: 10px; font-size: 12px; color: var(--cream); z-index: 5000; pointer-events: none; opacity: 0; transition: opacity 0.2s; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6); max-width: 240px; line-height: 1.5; }
+.vocab-tooltip.show { opacity: 1; }
+.vocab-tooltip .tt-es { color: var(--gold); font-weight: 700; margin-bottom: 3px; }
+.vocab-tooltip .tt-pt { color: var(--cream-muted); font-size: 11px; font-style: italic; }
+
+/* MATCHING */
+.matching-intro { background: rgba(212, 175, 55, 0.06); border: 1px solid var(--border-gold); border-radius: 16px; padding: 20px 24px; margin-bottom: 40px; text-align: center; font-size: 14px; color: var(--cream-soft); line-height: 1.6; }
+.matching-intro strong { color: var(--gold); }
+.matching-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 900px; margin: 0 auto; }
+.matching-col { display: flex; flex-direction: column; gap: 12px; }
+.matching-col-title { font-size: 11px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cream-muted); text-align: center; padding: 8px; margin-bottom: 8px; }
+.matching-item { background: var(--black-card); border: 2px solid rgba(255, 255, 255, 0.06); border-radius: 14px; padding: 16px 18px; cursor: pointer; transition: all 0.25s; display: flex; align-items: center; gap: 12px; min-height: 64px; }
+.matching-item:hover:not(.matched):not(.wrong) { border-color: var(--gold); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212, 175, 55, 0.15); }
+.matching-item.selected { border-color: var(--gold); background: rgba(212, 175, 55, 0.08); box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2); }
+.matching-item.matched { border-color: var(--red); background: rgba(228, 0, 43, 0.1); cursor: default; pointer-events: none; opacity: 0.6; animation: matchPop 0.5s ease; }
+@keyframes matchPop { 0% { transform: scale(1); } 40% { transform: scale(1.06); } 100% { transform: scale(1); } }
+.matching-item.wrong { border-color: var(--red); background: rgba(228, 0, 43, 0.12); animation: shake 0.4s ease; }
+@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+.matching-emoji { font-size: 32px; line-height: 1; flex-shrink: 0; }
+.matching-word { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 700; color: var(--cream); line-height: 1.2; }
+.matching-word .article { color: var(--gold); font-size: 0.75em; margin-right: 4px; }
+.matching-progress { text-align: center; margin-top: 32px; font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--cream-soft); }
+.matching-progress strong { color: var(--gold); font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 800; }
+.matching-reset { display: block; margin: 24px auto 0; padding: 12px 28px; border-radius: 100px; background: transparent; border: 1.5px solid var(--border-gold); color: var(--gold); font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.05em; cursor: pointer; transition: all 0.2s; }
+.matching-reset:hover { background: var(--gold); color: var(--black); }
+
+/* PRONUNCIATION */
+.pronunciation-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; max-width: 1100px; margin: 0 auto; }
+.pron-card { background: var(--black-card); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 16px; padding: 22px; transition: all 0.3s; }
+.pron-card:hover { border-color: var(--border-gold); transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4); }
+.pron-word { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 700; color: var(--cream); margin-bottom: 6px; }
+.pron-word .article { color: var(--red); font-size: 0.7em; font-family: 'Inter', sans-serif; font-weight: 800; margin-right: 6px; }
+.pron-phon { font-family: 'Space Grotesk', monospace; font-size: 14px; color: var(--gold); margin-bottom: 14px; letter-spacing: 0.02em; }
+.pron-tip { font-size: 12px; color: var(--cream-muted); line-height: 1.5; font-style: italic; margin-bottom: 16px; padding: 10px 12px; background: rgba(255, 255, 255, 0.02); border-radius: 8px; border-left: 2px solid var(--red); }
+.pron-tip strong { color: var(--cream-soft); font-style: normal; }
+.pron-actions { display: flex; gap: 8px; }
+.pron-btn { flex: 1; padding: 10px 12px; border-radius: 8px; background: rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.25); color: var(--gold); font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; transition: all 0.2s; }
+.pron-btn:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
+.pron-btn.slow { background: rgba(228, 0, 43, 0.1); border-color: rgba(228, 0, 43, 0.25); color: #FF6B7A; }
+.pron-btn.slow:hover { background: var(--red); color: white; border-color: var(--red); }
+
+/* QUIZ */
+.quiz-section { background: var(--black-soft); max-width: none; padding-left: 0; padding-right: 0; }
+.quiz-inner { max-width: 820px; margin: 0 auto; padding: 0 32px; }
+.quiz-box { background: var(--black-card); border: 1.5px solid var(--border-gold); border-radius: 24px; padding: 40px; position: relative; overflow: hidden; box-shadow: 0 24px 80px rgba(212, 175, 55, 0.1); }
+.quiz-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--gold-shimmer); }
+.quiz-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; gap: 12px; flex-wrap: wrap; }
+.quiz-label { font-size: 11px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
+.quiz-dots { display: flex; gap: 6px; }
+.quiz-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--border-subtle); transition: all 0.3s; }
+.quiz-dot.done { background: var(--gold); }
+.quiz-dot.active { background: var(--red); animation: pulse 1.5s infinite; box-shadow: 0 0 12px var(--red); }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+.quiz-q { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 700; color: var(--cream); margin-bottom: 24px; line-height: 1.3; }
+.quiz-q .highlight { color: var(--gold); font-style: italic; }
+.quiz-opts { display: flex; flex-direction: column; gap: 12px; }
+.quiz-opt { padding: 16px 22px; border: 2px solid rgba(255, 255, 255, 0.08); border-radius: 14px; background: rgba(255, 255, 255, 0.02); font-size: 15px; color: var(--cream-soft); text-align: left; cursor: pointer; font-family: 'Inter', sans-serif; font-weight: 500; line-height: 1.4; transition: all 0.2s; }
+.quiz-opt:hover:not(:disabled) { border-color: var(--gold); background: rgba(212, 175, 55, 0.05); color: var(--cream); }
+.quiz-opt.correct { border-color: #2ECC71; background: rgba(46, 204, 113, 0.15); color: #7AE0A0; animation: correctPop 0.5s ease; }
+@keyframes correctPop { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
+.quiz-opt.wrong { border-color: var(--red); background: rgba(228, 0, 43, 0.15); color: #FF6B7A; }
+.quiz-opt:disabled { cursor: not-allowed; opacity: 0.85; }
+.quiz-fb { font-size: 15px; font-weight: 600; padding: 14px 18px; border-radius: 12px; margin-top: 16px; display: none; animation: fadeInUp 0.3s ease; }
+.quiz-fb.show { display: block; }
+.quiz-fb.ok { background: rgba(46, 204, 113, 0.15); color: #7AE0A0; border: 1px solid rgba(46, 204, 113, 0.3); }
+.quiz-fb.nok { background: rgba(228, 0, 43, 0.1); color: #FF6B7A; border: 1px solid rgba(228, 0, 43, 0.3); }
+.quiz-next { display: none; margin-top: 20px; padding: 14px 32px; border-radius: 100px; background: var(--gold-shimmer); color: var(--black); border: none; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: all 0.2s; box-shadow: 0 8px 24px rgba(212, 175, 55, 0.35); }
+.quiz-next.show { display: inline-block; }
+.quiz-next:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(212, 175, 55, 0.5); }
+.quiz-result { text-align: center; padding: 24px 0; }
+.quiz-result-emoji { font-size: 80px; margin-bottom: 20px; animation: bounceIn 0.8s ease; display: inline-block; }
+@keyframes bounceIn { 0% { transform: scale(0); } 60% { transform: scale(1.2); } 100% { transform: scale(1); } }
+.quiz-result-title { font-family: 'Great Vibes', cursive; font-size: 56px; background: var(--gold-shimmer); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; margin-bottom: 16px; }
+.quiz-result-text { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-style: italic; color: var(--cream-soft); line-height: 1.6; margin-bottom: 24px; }
+.quiz-result-text strong { color: var(--gold); font-style: normal; }
+.quiz-retry { padding: 14px 32px; border-radius: 100px; background: transparent; border: 1.5px solid var(--gold); color: var(--gold); font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; transition: all 0.2s; }
+.quiz-retry:hover { background: var(--gold); color: var(--black); }
+
+/* SUMMARY */
+.summary-card { background: linear-gradient(135deg, var(--black-soft), var(--black)); border: 2px solid var(--border-gold); border-radius: 32px; padding: 64px 40px; text-align: center; max-width: 720px; margin: 0 auto; position: relative; overflow: hidden; box-shadow: 0 32px 80px rgba(212, 175, 55, 0.15); }
+.summary-icon { font-size: 72px; margin-bottom: 20px; filter: drop-shadow(0 8px 24px rgba(212, 175, 55, 0.4)); animation: rotate 8s linear infinite; display: inline-block; }
+@keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.summary-title { font-family: 'Great Vibes', cursive; font-size: 52px; background: var(--gold-shimmer); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; margin-bottom: 16px; }
+.summary-text { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-style: italic; color: var(--cream-soft); line-height: 1.6; max-width: 480px; margin: 0 auto 32px; }
+.summary-stats { display: flex; justify-content: center; gap: 40px; margin-bottom: 32px; flex-wrap: wrap; }
+.summary-stat { text-align: center; }
+.summary-stat-value { font-family: 'Inter', sans-serif; font-size: 40px; font-weight: 900; background: var(--gold-shimmer); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; margin-bottom: 4px; }
+.summary-stat-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream-muted); font-weight: 700; }
+.summary-cta { display: inline-flex; align-items: center; gap: 10px; padding: 18px 40px; border-radius: 100px; background: var(--gold-shimmer); color: var(--black); font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; box-shadow: 0 16px 40px rgba(212, 175, 55, 0.35); transition: all 0.3s; }
+.summary-cta:hover { transform: translateY(-3px); box-shadow: 0 24px 60px rgba(212, 175, 55, 0.5); }
+
+/* FOOTER */
+.footer { text-align: center; padding: 60px 32px; border-top: 1px solid var(--border-subtle); background: var(--black-soft); }
+.footer-script { font-family: 'Great Vibes', cursive; font-size: 42px; background: var(--gold-shimmer); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; margin-bottom: 12px; }
+.footer p { font-size: 12px; color: var(--cream-muted); letter-spacing: 0.1em; line-height: 1.8; }
+.footer strong { color: var(--gold); font-weight: 700; }
+
+/* CONFETTI */
+.confetti { position: fixed; width: 12px; height: 12px; top: -20px; pointer-events: none; z-index: 9999; border-radius: 2px; animation: confettiFall 3s ease-out forwards; }
+@keyframes confettiFall { 0% { opacity: 1; transform: translateY(0) rotate(0); } 100% { opacity: 0; transform: translateY(100vh) rotate(720deg); } }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav { padding: 0 16px; height: 64px; }
+  .brand-mark { width: 34px; height: 34px; font-size: 16px; }
+  .brand-text strong { font-size: 14px; }
+  .brand-text small { font-size: 9px; }
+  .section { padding: 64px 20px; }
+  .matching-wrap { grid-template-columns: 1fr; gap: 16px; }
+  .matching-col-title { display: none; }
+  .vocab-grid { grid-template-columns: 1fr; }
+  .falsos-grid { grid-template-columns: 1fr; }
+  .pronunciation-grid { grid-template-columns: 1fr; }
+  .hero { padding: 100px 20px 60px; }
+  .hero h1 { font-size: clamp(48px, 14vw, 90px); }
+  .roleplay-scenario { padding: 24px 20px; }
+  .scenario-title { font-size: 20px; }
+  .dialogue-bubble { font-size: 14px; padding: 12px 14px; }
+  .quiz-box { padding: 24px 20px; }
+  .quiz-q { font-size: 20px; }
+  .summary-card { padding: 48px 24px; }
+  .summary-title { font-size: 40px; }
+  .falso-front-word { font-size: 36px; }
+  .falso-card { height: 260px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-brand">
+    <div class="brand-mark">C</div>
+    <div class="brand-text">
+      <small>Español Laboral</small>
+      <strong>Coca-Cola · Proyecto Verano</strong>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#vocabulario">Vocabulario</a></li>
+    <li><a href="#falsos">Falsos Amigos</a></li>
+    <li><a href="#roleplay">Role Play</a></li>
+    <li><a href="#asociacion">Asociación</a></li>
+    <li><a href="#quiz">Quiz</a></li>
+  </ul>
+  <div class="nav-xp" id="navXp">⭐ <span id="xpValue">0</span> XP</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-float f1">🥤</div>
+  <div class="hero-float f2">🥤</div>
+  <div class="hero-float f3">🥤</div>
+  <span class="hero-badge">Inmersión Sensorial · Ambiente Laboral</span>
+  <h1>El Ambiente<span class="line2">de Oficina</span></h1>
+  <p class="hero-sub">Una experiencia inmersiva por los espacios de tu día a día en la Coca-Cola. Vocabulario, falsos amigos, pronunciación y role play — todo en español.</p>
+  <div class="hero-context">
+    <span class="context-pill red">👤 Pedro Vitor</span>
+    <span class="context-pill gold">💼 Gerente de RRHH</span>
+    <span class="context-pill">👥 Equipo de 6 personas</span>
+    <span class="context-pill">🏖️ Proyecto Verano</span>
+  </div>
+  <a href="#vocabulario" class="hero-cta">Comenzar la inmersión <span class="arrow">→</span></a>
+</section>
+
+<!-- CONTEXT STRIP -->
+<div class="context-strip">
+  <div class="context-inner">
+    <div class="context-item"><div class="context-item-icon">🏢</div><div class="context-item-text"><div class="context-item-label">Escenario</div><div class="context-item-value">Coca-Cola Brasil · São Paulo</div></div></div>
+    <div class="context-item"><div class="context-item-icon">🎯</div><div class="context-item-text"><div class="context-item-label">Objetivo</div><div class="context-item-value">Lanzamientos hasta diciembre</div></div></div>
+    <div class="context-item"><div class="context-item-icon">🌎</div><div class="context-item-text"><div class="context-item-label">Enlace</div><div class="context-item-value">Sede México · Equipo multinacional</div></div></div>
+  </div>
+</div>
+
+<!-- SECCIÓN 1 · VOCABULARIO -->
+<section class="section" id="vocabulario">
+  <div class="section-head reveal">
+    <div class="section-eyebrow">01 · Vocabulario</div>
+    <h2 class="section-title">Los espacios de <span class="script">tu oficina</span></h2>
+    <p class="section-sub">Cuatro ambientes, un solo idioma. Aprende el vocabulario agrupado por área, haz clic para escuchar la <strong>pronunciación auténtica</strong> y fíjate en el <strong>género de cada palabra</strong> — el o la.</p>
+  </div>
+  <div class="vocab-tabs reveal" id="vocabTabs"></div>
+  <div id="vocabPanels"></div>
+</section>
+
+<!-- SECCIÓN 2 · FALSOS AMIGOS -->
+<section class="section falsos-section" id="falsos">
+  <div class="falsos-inner">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">02 · Falsos Amigos</div>
+      <h2 class="section-title">¡Cuidado con los <span class="script">falsos amigos</span>!</h2>
+      <p class="section-sub">Palabras que parecen portugués (o inglés) pero significan otra cosa en español. <strong>Toca cada carta para revelar</strong> el verdadero significado. Este es uno de los errores más comunes entre brasileños.</p>
+    </div>
+    <div class="fun-fact reveal">
+      <div class="fun-fact-icon">💡</div>
+      <div class="fun-fact-text">
+        <div class="fun-fact-label">¿Sabías que…?</div>
+        <div class="fun-fact-content">Los falsos amigos se llaman así porque <strong>traicionan tu intuición</strong>. Un brasileño en una oficina en Madrid puede decir "estoy embarazada" pensando que dice "estoy avergonzado" — ¡y causar una sorpresa enorme! 😱</div>
+      </div>
+    </div>
+    <div class="falsos-grid reveal" id="falsosGrid"></div>
+  </div>
+</section>
+
+<!-- SECCIÓN 3 · ROLE PLAY -->
+<section class="section" id="roleplay">
+  <div class="section-head reveal">
+    <div class="section-eyebrow">03 · Role Play</div>
+    <h2 class="section-title">Frases reales en <span class="script">contexto</span></h2>
+    <p class="section-sub">Tres escenarios de tu semana en Coca-Cola. Las <strong>palabras doradas</strong> son del vocabulario — haz clic para escuchar la pronunciación y ver la traducción.</p>
+  </div>
+  <div class="roleplay-container reveal" id="roleplayContainer"></div>
+</section>
+
+<!-- SECCIÓN 4 · ASOCIACIÓN -->
+<section class="section" id="asociacion" style="background: var(--black-soft); max-width: none; padding-left: 0; padding-right: 0;">
+  <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px;">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">04 · Asociación Visual</div>
+      <h2 class="section-title">Une la imagen con <span class="script">su palabra</span></h2>
+      <p class="section-sub">Haz clic en un emoji de la izquierda y luego en la palabra correcta de la derecha. Si aciertas, se fijan en rojo. Si no, intenta de nuevo.</p>
+    </div>
+    <div class="matching-intro reveal"><strong>💡 Instrucción:</strong> Toca un objeto, luego su nombre en español. Completa los <strong>6 pares</strong> para ganar <strong>+50 XP</strong>.</div>
+    <div class="matching-wrap reveal">
+      <div class="matching-col" id="matchColLeft"><div class="matching-col-title">Objetos</div></div>
+      <div class="matching-col" id="matchColRight"><div class="matching-col-title">Palabras en español</div></div>
+    </div>
+    <div class="matching-progress" id="matchProgress"><strong>0</strong> / 6 pares completados</div>
+    <button class="matching-reset" onclick="resetMatching()">↻ Reiniciar juego</button>
+  </div>
+</section>
+
+<!-- SECCIÓN 5 · PRONUNCIACIÓN -->
+<section class="section" id="pronunciacion">
+  <div class="section-head reveal">
+    <div class="section-eyebrow">05 · Pronunciación</div>
+    <h2 class="section-title">Habla como un <span class="script">nativo</span></h2>
+    <p class="section-sub">Palabras con dificultades específicas para brasileños. Escucha lento, escucha normal, y repite. Fíjate en el <strong>género</strong> y la <strong>sílaba tónica</strong>.</p>
+  </div>
+  <div class="pronunciation-grid reveal" id="pronGrid"></div>
+</section>
+
+<!-- SECCIÓN 6 · QUIZ -->
+<section class="section quiz-section" id="quiz">
+  <div class="quiz-inner">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">06 · Quiz Final</div>
+      <h2 class="section-title">Demuestra lo <span class="script">aprendido</span></h2>
+      <p class="section-sub">Seis preguntas en español sobre artículos, falsos amigos y vocabulario de la oficina. ¡Acierta todas y desbloquea <strong>+100 XP</strong>!</p>
+    </div>
+    <div class="quiz-box reveal" id="quizBox">
+      <div class="quiz-header">
+        <span class="quiz-label">Quiz · El Ambiente de Oficina</span>
+        <div class="quiz-dots" id="quizDots"></div>
+      </div>
+      <div id="quizContent"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="section">
+  <div class="summary-card reveal">
+    <div class="summary-icon">🏆</div>
+    <h2 class="summary-title">¡Inmersión completa!</h2>
+    <p class="summary-text">Has recorrido los cuatro ambientes de tu oficina, descubriste los falsos amigos y demostraste lo aprendido en el quiz. Ahora llevas el vocabulario, la pronunciación y el género de cada palabra en tu mente — listo para tu próxima reunión con la sede México.</p>
+    <div class="summary-stats">
+      <div class="summary-stat"><div class="summary-stat-value" id="statXP">0</div><div class="summary-stat-label">XP ganados</div></div>
+      <div class="summary-stat"><div class="summary-stat-value" id="statWords">0</div><div class="summary-stat-label">Palabras escuchadas</div></div>
+      <div class="summary-stat"><div class="summary-stat-value" id="statPairs">0</div><div class="summary-stat-label">Pares acertados</div></div>
+    </div>
+    <a href="#vocabulario" class="summary-cta">🔄 Practicar de nuevo</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-script">El Ambiente de Oficina</div>
+  <p><strong>Pedro Vitor</strong> · Gerente de RRHH · Coca-Cola Brasil</p>
+  <p>Proyecto Verano · Sede México · Equipo de 6 personas</p>
+  <p style="margin-top: 12px;">Español Laboral · Inmersión Sensorial · 2025</p>
+</footer>
+
+<!-- TOOLTIP -->
+<div class="vocab-tooltip" id="vocabTooltip"><div class="tt-es"></div><div class="tt-pt"></div></div>
+
+<script>
+/* ============================================================
+   DATA — VOCABULARIO COMPLETO POR ÁREAS
+============================================================ */
+const VOCAB_DATA = [
+  {
+    id: 'escritorio', icon: '🏢', title: 'El Escritorio / Despacho', desc: 'Tu mesa de trabajo · el lugar donde arranca el lunes',
+    words: [
+      { emoji: '🪑', es: 'el escritorio', esAlt: 'la mesa', pt: 'A escrivaninha / mesa', phon: 'es-kri-TO-rio', gender: 'm' },
+      { emoji: '💺', es: 'la silla de oficina', esAlt: 'la silla ergonómica', pt: 'A cadeira de escritório', phon: 'SI-ya de o-fi-SI-na', gender: 'f' },
+      { emoji: '💻', es: 'el ordenador', esAlt: 'la computadora', pt: 'O computador', phon: 'or-de-na-DOR', gender: 'm' },
+      { emoji: '⌨️', es: 'el teclado y el ratón', pt: 'O teclado e o mouse', phon: 'te-KLA-do i ra-TÓN', gender: 'm' },
+      { emoji: '🖥️', es: 'la pantalla', esAlt: 'el monitor', pt: 'A tela / monitor', phon: 'pan-TA-ya', gender: 'f' },
+      { emoji: '🎧', es: 'los auriculares', esAlt: 'los cascos', pt: 'Os fones de ouvido', phon: 'au-ri-ku-LA-res', gender: 'm' },
+      { emoji: '📓', es: 'la agenda', esAlt: 'el cuaderno', pt: 'A agenda / caderno', phon: 'a-JEN-da', gender: 'f' },
+      { emoji: '🖊️', es: 'el bolígrafo (o boli)', esAlt: 'el lápiz', pt: 'A caneta / o lápis', phon: 'bo-LÍ-gra-fo', gender: 'm' },
+      { emoji: '📎', es: 'la grapadora', pt: 'O grampeador', phon: 'gra-pa-DO-ra', gender: 'f' },
+      { emoji: '🗄️', es: 'el archivador', pt: 'O arquivo / fichário', phon: 'ar-chi-va-DOR', gender: 'm' },
+      { emoji: '🗑️', es: 'la basura', pt: 'A lixeira / o lixo', phon: 'ba-SU-ra', gender: 'f' },
+      { emoji: '🧴', es: 'la botella', pt: 'A garrafa', phon: 'bo-TE-ya', gender: 'f' },
+      { emoji: '🪟', es: 'la ventana', pt: 'A janela', phon: 'ben-TA-na', gender: 'f' },
+      { emoji: '🪟', es: 'la cortina', pt: 'A cortina', phon: 'kor-TI-na', gender: 'f' },
+      { emoji: '🚪', es: 'la puerta', pt: 'A porta', phon: 'PWER-ta', gender: 'f' },
+      { emoji: '💡', es: 'la luz', pt: 'A luz', phon: 'LUTH', gender: 'f' },
+      { emoji: '☎️', es: 'el teléfono', pt: 'O telefone', phon: 'te-LÉ-fo-no', gender: 'm' }
+    ]
+  },
+  {
+    id: 'reuniones', icon: '🤝', title: 'La Sala de Reuniones', desc: 'Donde nace el Proyecto Verano',
+    words: [
+      { emoji: '🪑', es: 'la mesa de juntas', pt: 'A mesa de reunião', phon: 'ME-sa de JUN-tas', gender: 'f' },
+      { emoji: '📽️', es: 'el proyector', pt: 'O projetor', phon: 'pro-yek-TOR', gender: 'm' },
+      { emoji: '📋', es: 'la pizarra blanca', esAlt: 'el rotulador', pt: 'O quadro branco / o pincel marcador', phon: 'pi-THA-rra BLAN-ka', gender: 'f' },
+      { emoji: '🖼️', es: 'la pantalla de proyección', pt: 'A tela de projeção', phon: 'pan-TA-ya de pro-yek-THYÓN', gender: 'f' },
+      { emoji: '🔊', es: 'el altavoz', esAlt: 'el micrófono', pt: 'O alto-falante / o microfone', phon: 'al-ta-VOTH', gender: 'm' },
+      { emoji: '📝', es: 'el bloc de notas', pt: 'O bloco de notas', phon: 'BLOK de NO-tas', gender: 'm' }
+    ]
+  },
+  {
+    id: 'descanso', icon: '☕', title: 'El Área de Descanso / Zona de Relax', desc: 'El café que activa la creatividad',
+    words: [
+      { emoji: '🛋️', es: 'el sofá', esAlt: 'los sillones', pt: 'O sofá / as poltronas', phon: 'so-FÁ', gender: 'm' },
+      { emoji: '☕', es: 'la máquina de café', esAlt: 'la cafetera', pt: 'A máquina de café / cafeteira', phon: 'MÁ-ki-na de ka-FÉ', gender: 'f' },
+      { emoji: '💧', es: 'el dispensador de agua', pt: 'O bebedouro', phon: 'dis-pen-sa-DOR de A-gwa', gender: 'm' },
+      { emoji: '☕', es: 'las tazas', pt: 'As xícaras / canecas', phon: 'TA-thas', gender: 'f' },
+      { emoji: '📰', es: 'las revistas', esAlt: 'la prensa', pt: 'As revistas / jornais', phon: 're-VIS-tas', gender: 'f' },
+      { emoji: '⚽', es: 'el futbolín', esAlt: 'la mesa de ping-pong', pt: 'O pebolim (totó) / mesa de ping-pong', phon: 'fut-bo-LÍN', gender: 'm' }
+    ]
+  },
+  {
+    id: 'comedor', icon: '🍽️', title: 'El Comedor / Cafetería', desc: 'El almuerzo entre reuniones',
+    words: [
+      { emoji: '📻', es: 'el microondas', pt: 'O micro-ondas', phon: 'mi-kro-ÓN-das', gender: 'm' },
+      { emoji: '🧊', es: 'la nevera', esAlt: 'el frigorífico', pt: 'A geladeira', phon: 'ne-VE-ra', gender: 'f' },
+      { emoji: '🍴', es: 'los cubiertos', pt: 'Os talheres (tenedor, cuchillo, cuchara)', phon: 'ku-BIER-tos', gender: 'm' },
+      { emoji: '🍽️', es: 'el plato', esAlt: 'el vaso', pt: 'O prato / o copo', phon: 'PLA-to', gender: 'm' },
+      { emoji: '🧻', es: 'la servilleta', pt: 'O guardanapo', phon: 'ser-vi-YE-ta', gender: 'f' },
+      { emoji: '🚰', es: 'el fregadero', pt: 'A pia da cozinha', phon: 'fre-ga-DE-ro', gender: 'm' },
+      { emoji: '♻️', es: 'la basura', esAlt: 'el contenedor de reciclaje', pt: 'O lixo / lixeira de reciclagem', phon: 'ba-SU-ra', gender: 'f' },
+      { emoji: '🪑', es: 'la mesa colectiva', pt: 'A mesa coletiva', phon: 'ME-sa ko-lek-TI-va', gender: 'f' },
+      { emoji: '🥤', es: 'la bebida', pt: 'A bebida', phon: 'be-BI-da', gender: 'f' },
+      { emoji: '🧑‍🍳', es: 'el servidor de comida', pt: 'O servidor de comida', phon: 'ser-vi-DOR de ko-MI-da', gender: 'm' },
+      { emoji: '⚠️', es: 'la alergia', pt: 'A alergia', phon: 'a-LER-khia', gender: 'f' }
+    ]
+  }
+];
+
+/* ============================================================
+   FALSOS AMIGOS DATA
+============================================================ */
+const FALSOS_AMIGOS = [
+  { word: 'carpeta', not: 'carpete (alfombra)', meaning: 'Pasta de arquivos', example: 'Pedro guarda el informe en la <strong>carpeta</strong> azul.', hint: '¿Será una alfombra?' },
+  { word: 'vaso', not: 'vaso (floreira)', meaning: 'Copo / vaso para beber', example: 'Pedro bebe agua en el <strong>vaso</strong> del comedor.', hint: '¿Será un objeto de decoração?' },
+  { word: 'actual', not: 'atual (current - não é falso amigo real, mas confunde)', meaning: 'Atual / presente', example: 'El proyecto <strong>actual</strong> de Pedro es el Proyecto Verano.', hint: '¿Será "atual"? Sim! Este é real.' },
+  { word: 'asistir', not: 'assistir (ver TV)', meaning: 'Ir a / estar presente en', example: 'Pedro va a <strong>asistir</strong> a la reunión con México.', hint: '¿Será "assistir televisão"?' },
+  { word: 'éxito', not: 'êxito (exit / saída)', meaning: 'Sucesso / triunfo', example: 'El Proyecto Verano será un gran <strong>éxito</strong>.', hint: '¿Será a saída do prédio?' },
+  { word: 'compromiso', not: 'compromisso (noivo/a)', meaning: 'Dever / obrigação', example: 'El equipo tiene <strong>compromiso</strong> con la calidad.', hint: '¿Será um noivado?' },
+  { word: 'largo', not: 'largo (grande)', meaning: 'Comprido / longo', example: 'La reunión de hoy es muy <strong>larga</strong>.', hint: '¿Será algo grande?' },
+  { word: 'realizar', not: 'realizar (perceber)', meaning: 'Fazer / executar', example: 'Pedro va a <strong>realizar</strong> la presentación el lunes.', hint: '¿Será "perceber"?' },
+  { word: 'soportar', not: 'suportar (aguentar - mesmo sentido, mas cuidado)', meaning: 'Tolerar / aguentar', example: 'No <strong>soporto</strong> el ruido del microondas.', hint: '¿Será "dar suporte"?' },
+  { word: 'embarazada', not: 'embaraçada (avergonhada)', meaning: 'Grávida', example: 'Marina está <strong>embarazada</strong>, ¡qué buena noticia!', hint: '¿Será "avergonhada"?' }
+];
+
+/* ============================================================
+   ROLE PLAY DATA
+============================================================ */
+const ROLEPLAY_DATA = [
+  {
+    num: '1', title: 'Reunión de alineación — Proyecto Verano',
+    context: 'Pedro reúne a su equipo de 6 para revisar los lanzamientos hasta diciembre.',
+    location: '🤝 Sala de Juntas · Piso 8',
+    dialogue: [
+      { who: 'pedro', name: 'Pedro', text: 'Buenos días, equipo. ¿Está listo el <v>proyector</v> para la presentación del Proyecto Verano?' },
+      { who: 'colleague', name: 'Marina', text: 'Sí, jefe. La <v>pantalla de proyección</v> ya está montada y el <v>micrófono</v> funciona.' },
+      { who: 'pedro', name: 'Pedro', text: 'Perfecto. Voy a escribir los KPIs en la <v>pizarra blanca</v>. ¿Alguien tiene un <v>rotulador</v>?' },
+      { who: 'colleague', name: 'Lucas', text: 'Aquí tienes. También traje el <v>bloc de notas</v> para las actas.' },
+      { who: 'pedro', name: 'Pedro', text: 'Gracias. Vamos a la <v>mesa de juntas</v> — necesito que todos se sienten cerca del <v>altavoz</v> para la llamada con México.' }
+    ]
+  },
+  {
+    num: '2', title: 'Pausa de café — Área de descanso',
+    context: 'Diez minutos entre reuniones. El ritual que renueva la energía del equipo.',
+    location: '☕ Área de Descanso · Piso 8',
+    dialogue: [
+      { who: 'pedro', name: 'Pedro', text: '¿Ya está hecho el café? Necesito una <v>taza</v> urgente antes de la reunión de las diez.' },
+      { who: 'colleague', name: 'Marina', text: 'Sí, la <v>máquina de café</v> está funcionando. ¿Con o sin azúcar?' },
+      { who: 'pedro', name: 'Pedro', text: 'Sin azúcar, por favor. Mejor paso por el <v>dispensador de agua</v> después.' },
+      { who: 'colleague', name: 'Lucas', text: '¿Viste las <v>revistas</v> nuevas? Hay una entrevista sobre Proyecto Verano en la <v>prensa</v> de hoy.' },
+      { who: 'pedro', name: 'Pedro', text: 'No, pero después de la reunión me tiro en el <v>sofá</v> a leerlas. Es lo que me salva el lunes.' }
+    ]
+  },
+  {
+    num: '3', title: 'Almuerzo rápido — Comedor',
+    context: 'El almuerzo de 30 minutos entre llamadas con Atlanta y México.',
+    location: '🍽️ Comedor · Planta baja',
+    dialogue: [
+      { who: 'pedro', name: 'Pedro', text: '¿Puedo calentar mi comida en el <v>microondas</v>? La <v>nevera</v> del equipo está llena.' },
+      { who: 'colleague', name: 'Marina', text: 'Claro. Aquí tienes los <v>cubiertos</v> — tenedor, cuchillo y cuchara.' },
+      { who: 'pedro', name: 'Pedro', text: 'Gracias. ¿Puedo usar este <v>plato</v> y este <v>vaso</v>? Tengo <v>alergia</v> a algunos materiales.' },
+      { who: 'colleague', name: 'Lucas', text: 'Sí, y aquí tienes una <v>servilleta</v>. Después lavo todo en el <v>fregadero</v>.' },
+      { who: 'pedro', name: 'Pedro', text: 'Y no olvides tirar los restos en el <v>contenedor de reciclaje</v>. Coca-Cola se preocupa por el medio ambiente.' }
+    ]
+  }
+];
+
+/* ============================================================
+   QUIZ DATA (TODO EN ESPAÑOL)
+============================================================ */
+const QUIZ_DATA = [
+  {
+    q: '¿Cuál es el artículo correcto para la palabra <span class="highlight">ventana</span>?',
+    opts: ['el ventana', 'la ventana', 'los ventana'],
+    ans: 1,
+    explanation: '✅ ¡Correcto! "Ventana" es femenina: <strong>la ventana</strong>.'
+  },
+  {
+    q: 'Pedro guarda el informe en la <span class="highlight">___</span>. ¿Cuál es la palabra correcta?',
+    opts: ['carpete', 'carpeta', 'carpeta (alfombra)'],
+    ans: 1,
+    explanation: '✅ ¡Correcto! "Carpeta" en español es la <strong>pasta de arquivos</strong>, NO la alfombra del piso.'
+  },
+  {
+    q: '¿Cuál de estas palabras es un <span class="highlight">falso amigo</span>?',
+    opts: ['mesa', 'actual', 'silla'],
+    ans: 1,
+    explanation: '✅ ¡Correcto! "Actual" significa <strong>atual / presente</strong>, no "actual" en sentido figurado.'
+  },
+  {
+    q: 'Completa: "Pedro va a ___ a la reunión con México."',
+    opts: ['assistir', 'asistir', 'assistir televisão'],
+    ans: 1,
+    explanation: '✅ ¡Correcto! "Asistir" significa <strong>ir a / estar presente</strong>, no "assistir televisão".'
+  },
+  {
+    q: '¿Qué significa "la nevera" en español?',
+    opts: ['A geladeira', 'A pia', 'A máquina de café'],
+    ans: 0,
+    explanation: '✅ ¡Correcto! "La nevera" es la <strong>geladeira / frigorífico</strong>.'
+  },
+  {
+    q: '¿Cuál frase está <span class="highlight">correcta</span> en español?',
+    opts: [
+      'Voy a la oficina en el ordenador.',
+      'Trabajo con el ordenador en la oficina.',
+      'El oficina está grande.'
+    ],
+    ans: 1,
+    explanation: '✅ ¡Correcto! "La oficina" es femenina y se trabaja <strong>en la oficina</strong>.'
+  }
+];
+
+/* ============================================================
+   PRONUNCIACIÓN DATA
+============================================================ */
+const PRON_DATA = [
+  { es: 'el escritorio', article: 'el', phon: 'es-kri-TO-rio', tip: 'La sílaba tónica es <strong>TO</strong>. No digas "escritório" como en portugués.' },
+  { es: 'la silla', article: 'la', phon: 'SI-ya', tip: 'Doble L en español suena como "y" (yeísmo). No es "silla" con L fuerte.' },
+  { es: 'el teclado', article: 'el', phon: 'te-KLA-do', tip: 'La T es dental y suave, no como en inglés. La K es limpia.' },
+  { es: 'la pantalla', article: 'la', phon: 'pan-TA-ya', tip: 'La LL suena como "y". "Pantaya", no "pantalla".' },
+  { es: 'el ordenador', article: 'el', phon: 'or-de-na-DOR', tip: 'La D final suena como "th" suave (θ). "OrdenaDOR" con D interdental.' },
+  { es: 'la pizarra', article: 'la', phon: 'pi-THA-rra', tip: 'En España, la Z suena "th". "piTHArra", no "pisarra".' },
+  { es: 'el micrófono', article: 'el', phon: 'mi-KRÓ-fo-no', tip: 'Sílaba tónica <strong>KRÓ</strong>. Fíjate en el acento escrito (tilde).' },
+  { es: 'la máquina', article: 'la', phon: 'MÁ-ki-na', tip: 'Sílaba tónica <strong>MÁ</strong>. La QU suena como K fuerte, no como KW.' },
+  { es: 'la ventana', article: 'la', phon: 'ben-TA-na', tip: 'La V suena como B suave. "BenTAna", no "ventana" con V inglesa.' },
+  { es: 'la luz', article: 'la', phon: 'LUTH', tip: 'La Z final suena "th" (θ). "Luth", no "lus".' }
+];
+
+/* ============================================================
+   STATE
+============================================================ */
+let totalXP = 0;
+let wordsSpoken = 0;
+let matchedPairs = 0;
+
+function addXP(amount) {
+  totalXP += amount;
+  document.getElementById('xpValue').textContent = totalXP;
+  document.getElementById('statXP').textContent = totalXP;
+  const navXp = document.getElementById('navXp');
+  navXp.classList.add('bump');
+  setTimeout(() => navXp.classList.remove('bump'), 500);
+}
+
+/* ============================================================
+   WEB SPEECH API
+============================================================ */
+function speak(text, rate = 0.9) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const utt = new SpeechSynthesisUtterance(text);
+  utt.lang = 'es-ES';
+  utt.rate = rate;
+  utt.pitch = 1;
+  const voices = window.speechSynthesis.getVoices();
+  const spanishVoice = voices.find(v => v.lang === 'es-ES') || voices.find(v => v.lang.startsWith('es'));
+  if (spanishVoice) utt.voice = spanishVoice;
+  window.speechSynthesis.speak(utt);
+  wordsSpoken++;
+  document.getElementById('statWords').textContent = wordsSpoken;
+  addXP(1);
+}
+if ('speechSynthesis' in window) {
+  window.speechSynthesis.getVoices();
+  window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+}
+
+/* ============================================================
+   RENDER VOCABULARIO
+============================================================ */
+function renderVocab() {
+  const tabsEl = document.getElementById('vocabTabs');
+  const panelsEl = document.getElementById('vocabPanels');
+  tabsEl.innerHTML = VOCAB_DATA.map((area, i) => `
+    <button class="vocab-tab ${i === 0 ? 'active' : ''}" data-tab="${area.id}" onclick="switchTab('${area.id}')">
+      <span class="tab-icon">${area.icon}</span>
+      <span>${area.title.split('/')[0].trim()}</span>
+      <span class="tab-count">${area.words.length}</span>
+    </button>
+  `).join('');
+
+  panelsEl.innerHTML = VOCAB_DATA.map((area, i) => `
+    <div class="vocab-panel ${i === 0 ? 'active' : ''}" id="panel-${area.id}">
+      <div class="vocab-area-header">
+        <div class="vocab-area-icon">${area.icon}</div>
+        <h3 class="vocab-area-title">${area.title}</h3>
+        <p class="vocab-area-desc">${area.desc}</p>
+      </div>
+      <div class="vocab-grid">
+        ${area.words.map(w => {
+          const isFem = w.gender === 'f';
+          const genderClass = isFem ? 'fem' : 'masc';
+          const genderLabel = isFem ? 'la' : 'el';
+          const cleanEs = w.es.replace(/^(el|la|los|las)\s+/i, '');
+          return `
+            <div class="word-card" onclick="markLearned(this)">
+              <div class="word-emoji">${w.emoji}</div>
+              <div class="word-es"><span class="article ${genderClass}">${genderLabel}</span>${cleanEs}</div>
+              ${w.esAlt ? `<div style="font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--gold);font-style:italic;margin-bottom:4px;">o: ${w.esAlt}</div>` : ''}
+              <div class="word-pt">${w.pt}</div>
+              <div class="word-phon">${w.phon}</div>
+              <div class="word-actions">
+                <button class="word-play-btn" onclick="event.stopPropagation(); speak('${w.es.replace(/'/g, "\\'")}')">🔊 Escuchar</button>
+                <button class="word-play-btn slow" onclick="event.stopPropagation(); speak('${w.es.replace(/'/g, "\\'")}', 0.6)" title="Lento">🐢</button>
+              </div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+function switchTab(id) {
+  document.querySelectorAll('.vocab-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === id));
+  document.querySelectorAll('.vocab-panel').forEach(p => p.classList.toggle('active', p.id === 'panel-' + id));
+}
+
+function markLearned(el) {
+  if (!el.classList.contains('learned')) {
+    el.classList.add('learned');
+    addXP(5);
+  }
+}
+
+/* ============================================================
+   RENDER FALSOS AMIGOS
+============================================================ */
+function renderFalsos() {
+  const grid = document.getElementById('falsosGrid');
+  grid.innerHTML = FALSOS_AMIGOS.map(f => `
+    <div class="falso-card" onclick="this.classList.toggle('flipped')">
+      <div class="falso-inner">
+        <div class="falso-front">
+          <div>
+            <div class="falso-front-label">Falso Amigo</div>
+            <div class="falso-front-word">${f.word}</div>
+            <div class="falso-front-question">${f.hint}</div>
+          </div>
+          <div class="falso-front-hint">Toca para revelar</div>
+        </div>
+        <div class="falso-back">
+          <div>
+            <div class="falso-back-label">Significado Real</div>
+            <div class="falso-back-meaning">${f.meaning}</div>
+            <div class="falso-back-not">${f.not}</div>
+          </div>
+          <div class="falso-back-example">${f.example}</div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ============================================================
+   RENDER ROLE PLAY
+============================================================ */
+function renderRoleplay() {
+  const container = document.getElementById('roleplayContainer');
+  container.innerHTML = ROLEPLAY_DATA.map(scenario => `
+    <div class="roleplay-scenario">
+      <div class="scenario-head">
+        <div class="scenario-num">${scenario.num}</div>
+        <div>
+          <div class="scenario-title">${scenario.title}</div>
+          <div class="scenario-context">${scenario.context}</div>
+        </div>
+      </div>
+      <div class="scenario-location">${scenario.location}</div>
+      <div class="dialogue">
+        ${scenario.dialogue.map(msg => `
+          <div class="dialogue-msg ${msg.who}">
+            <div class="dialogue-avatar ${msg.who}">${msg.name.charAt(0)}</div>
+            <div class="dialogue-bubble">
+              <div class="dialogue-speaker">${msg.name}</div>
+              ${msg.text.replace(/<v>(.*?)<\/v>/g, (m, word) => {
+                const found = findWordTranslation(word);
+                const esc = word.replace(/'/g, "\\'");
+                return `<span class="vocab-word" onmouseenter="showTooltip(event, '${esc}', '${found.pt.replace(/'/g, "\\'")}')" onmouseleave="hideTooltip()" onclick="speak('${esc}')">${word}</span>`;
+              })}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+function findWordTranslation(word) {
+  const normalized = word.toLowerCase();
+  for (const area of VOCAB_DATA) {
+    for (const w of area.words) {
+      const wWords = [w.es.toLowerCase(), ...(w.esAlt ? [w.esAlt.toLowerCase()] : [])];
+      for (const ww of wWords) {
+        if (ww.includes(normalized) || normalized.includes(ww.split(' ').slice(-1)[0])) return w;
+      }
+    }
+  }
+  for (const area of VOCAB_DATA) {
+    for (const w of area.words) {
+      const cleanEs = w.es.replace(/^(el|la|los|las)\s+/i, '').toLowerCase();
+      if (cleanEs.split(/[ ,]+/).some(part => normalized.includes(part) && part.length > 3)) return w;
+    }
+  }
+  return { pt: '(ver vocabulario)' };
+}
+
+/* ============================================================
+   TOOLTIP
+============================================================ */
+const tooltip = document.getElementById('vocabTooltip');
+function showTooltip(event, es, pt) {
+  tooltip.querySelector('.tt-es').textContent = es;
+  tooltip.querySelector('.tt-pt').textContent = pt;
+  tooltip.classList.add('show');
+  const rect = event.target.getBoundingClientRect();
+  tooltip.style.left = Math.min(rect.left, window.innerWidth - 260) + 'px';
+  tooltip.style.top = (rect.bottom + 8) + 'px';
+}
+function hideTooltip() { tooltip.classList.remove('show'); }
+
+/* ============================================================
+   MATCHING
+============================================================ */
+const MATCH_PAIRS = [
+  { emoji: '💻', es: 'el ordenador', key: 'ordenador' },
+  { emoji: '☕', es: 'la máquina de café', key: 'maquina' },
+  { emoji: '📽️', es: 'el proyector', key: 'proyector' },
+  { emoji: '🖥️', es: 'la pantalla', key: 'pantalla' },
+  { emoji: '🪑', es: 'la mesa de juntas', key: 'mesa' },
+  { emoji: '🍽️', es: 'el plato', key: 'plato' }
+];
+let selectedLeft = null;
+let selectedRight = null;
+
+function renderMatching() {
+  const leftCol = document.getElementById('matchColLeft');
+  const rightCol = document.getElementById('matchColRight');
+  const titleL = leftCol.querySelector('.matching-col-title');
+  const titleR = rightCol.querySelector('.matching-col-title');
+  const shuffledRight = [...MATCH_PAIRS].sort(() => Math.random() - 0.5);
+  leftCol.innerHTML = ''; rightCol.innerHTML = '';
+  leftCol.appendChild(titleL); rightCol.appendChild(titleR);
+  MATCH_PAIRS.forEach(pair => {
+    const el = document.createElement('div');
+    el.className = 'matching-item';
+    el.dataset.key = pair.key;
+    el.dataset.side = 'left';
+    el.innerHTML = `<span class="matching-emoji">${pair.emoji}</span>`;
+    el.onclick = () => selectMatchItem(el);
+    leftCol.appendChild(el);
+  });
+  shuffledRight.forEach(pair => {
+    const el = document.createElement('div');
+    el.className = 'matching-item';
+    el.dataset.key = pair.key;
+    el.dataset.side = 'right';
+    const genderLabel = pair.es.startsWith('la') ? 'la' : 'el';
+    const cleanWord = pair.es.replace(/^(el|la|los|las)\s+/i, '');
+    el.innerHTML = `<span class="matching-word"><span class="article">${genderLabel}</span>${cleanWord}</span>`;
+    el.onclick = () => selectMatchItem(el);
+    rightCol.appendChild(el);
+  });
+}
+
+function selectMatchItem(el) {
+  if (el.classList.contains('matched')) return;
+  const side = el.dataset.side;
+  if (side === 'left') {
+    if (selectedLeft) selectedLeft.classList.remove('selected');
+    selectedLeft = el;
+    el.classList.add('selected');
+    speak(MATCH_PAIRS.find(p => p.key === el.dataset.key).es);
+  } else {
+    if (selectedRight) selectedRight.classList.remove('selected');
+    selectedRight = el;
+    el.classList.add('selected');
+  }
+  if (selectedLeft && selectedRight) checkMatch();
+}
+
+function checkMatch() {
+  const leftKey = selectedLeft.dataset.key;
+  const rightKey = selectedRight.dataset.key;
+  if (leftKey === rightKey) {
+    selectedLeft.classList.add('matched');
+    selectedRight.classList.add('matched');
+    selectedLeft.classList.remove('selected');
+    selectedRight.classList.remove('selected');
+    matchedPairs++;
+    document.getElementById('matchProgress').innerHTML = `<strong>${matchedPairs}</strong> / 6 pares completados`;
+    document.getElementById('statPairs').textContent = matchedPairs;
+    addXP(10);
+    speak('¡Correcto!');
+    selectedLeft = null; selectedRight = null;
+    if (matchedPairs === 6) {
+      addXP(50);
+      setTimeout(() => { launchConfetti(); }, 500);
+    }
+  } else {
+    selectedLeft.classList.add('wrong');
+    selectedRight.classList.add('wrong');
+    setTimeout(() => {
+      selectedLeft.classList.remove('wrong', 'selected');
+      selectedRight.classList.remove('wrong', 'selected');
+      selectedLeft = null; selectedRight = null;
+    }, 700);
+  }
+}
+
+function resetMatching() {
+  selectedLeft = null; selectedRight = null; matchedPairs = 0;
+  document.getElementById('matchProgress').innerHTML = `<strong>0</strong> / 6 pares completados`;
+  document.getElementById('statPairs').textContent = 0;
+  renderMatching();
+}
+
+/* ============================================================
+   PRONUNCIACIÓN
+============================================================ */
+function renderPronunciation() {
+  const grid = document.getElementById('pronGrid');
+  grid.innerHTML = PRON_DATA.map(p => `
+    <div class="pron-card">
+      <div class="pron-word"><span class="article">${p.article}</span>${p.es.replace(/^(el|la)\s+/, '')}</div>
+      <div class="pron-phon">${p.phon}</div>
+      <div class="pron-tip">${p.tip}</div>
+      <div class="pron-actions">
+        <button class="pron-btn" onclick="speak('${p.es.replace(/'/g, "\\'")}')">🔊 Normal</button>
+        <button class="pron-btn slow" onclick="speak('${p.es.replace(/'/g, "\\'")}', 0.55)">🐢 Lento</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ============================================================
+   QUIZ
+============================================================ */
+let quizIdx = 0;
+let quizCorrect = 0;
+
+function renderQuizDots() {
+  document.getElementById('quizDots').innerHTML = QUIZ_DATA.map((_, i) => {
+    let cls = 'quiz-dot';
+    if (i < quizIdx) cls += ' done';
+    else if (i === quizIdx) cls += ' active';
+    return `<div class="${cls}"></div>`;
+  }).join('');
+}
+
+function renderQuiz() {
+  renderQuizDots();
+  const q = QUIZ_DATA[quizIdx];
+  const container = document.getElementById('quizContent');
+  container.innerHTML = `
+    <div class="quiz-q">${quizIdx + 1}. ${q.q}</div>
+    <div class="quiz-opts">
+      ${q.opts.map((o, i) => `<button class="quiz-opt" onclick="answerQuiz(${i})">${o}</button>`).join('')}
+    </div>
+    <div class="quiz-fb" id="quizFb"></div>
+    <button class="quiz-next" id="quizNext" onclick="nextQuiz()">${quizIdx < QUIZ_DATA.length - 1 ? 'Siguiente →' : 'Ver resultado 🎯'}</button>
+  `;
+}
+
+function answerQuiz(selected) {
+  const q = QUIZ_DATA[quizIdx];
+  const opts = document.querySelectorAll('#quizContent .quiz-opt');
+  const fb = document.getElementById('quizFb');
+  const nextBtn = document.getElementById('quizNext');
+  opts.forEach((o, i) => {
+    o.disabled = true;
+    if (i === q.ans) o.classList.add('correct');
+    else if (i === selected) o.classList.add('wrong');
+  });
+  if (selected === q.ans) {
+    quizCorrect++;
+    fb.innerHTML = `${q.explanation} <strong style="color:var(--gold);">+15 XP</strong>`;
+    fb.className = 'quiz-fb ok show';
+    addXP(15);
+  } else {
+    fb.innerHTML = `❌ La respuesta correcta es: <strong>"${q.opts[q.ans]}"</strong><br><em style="opacity:0.8;font-size:13px;">${q.explanation}</em>`;
+    fb.className = 'quiz-fb nok show';
+  }
+  nextBtn.classList.add('show');
+}
+
+function nextQuiz() {
+  quizIdx++;
+  if (quizIdx < QUIZ_DATA.length) renderQuiz();
+  else showQuizResult();
+}
+
+function showQuizResult() {
+  document.getElementById('quizDots').innerHTML = QUIZ_DATA.map(() => '<div class="quiz-dot done"></div>').join('');
+  const container = document.getElementById('quizContent');
+  if (quizCorrect === QUIZ_DATA.length) {
+    container.innerHTML = `
+      <div class="quiz-result">
+        <div class="quiz-result-emoji">🏆</div>
+        <div class="quiz-result-title">¡Perfecto!</div>
+        <p class="quiz-result-text">Has acertado <strong>${quizCorrect}/${QUIZ_DATA.length}</strong> preguntas.<br>Dominas el vocabulario del ambiente de oficina.<br><strong style="color:var(--gold);">+100 XP desbloqueados</strong></p>
+      </div>
+    `;
+    addXP(100);
+    setTimeout(launchConfetti, 300);
+  } else {
+    container.innerHTML = `
+      <div class="quiz-result">
+        <div class="quiz-result-emoji">🎯</div>
+        <div class="quiz-result-title">¡Buen intento!</div>
+        <p class="quiz-result-text">Acertaste <strong>${quizCorrect}/${QUIZ_DATA.length}</strong> preguntas.<br>Repasa el vocabulario y vuelve a intentarlo.</p>
+        <button class="quiz-retry" onclick="resetQuiz()">🔄 Reintentar quiz</button>
+      </div>
+    `;
+  }
+}
+
+function resetQuiz() {
+  quizIdx = 0; quizCorrect = 0;
+  renderQuiz();
+}
+
+/* ============================================================
+   CONFETTI
+============================================================ */
+function launchConfetti() {
+  const colors = ['#E4002B', '#D4AF37', '#F0D77B', '#A8871C', '#F5E6D3'];
+  for (let i = 0; i < 100; i++) {
+    setTimeout(() => {
+      const conf = document.createElement('div');
+      conf.className = 'confetti';
+      conf.style.left = Math.random() * 100 + 'vw';
+      conf.style.background = colors[Math.floor(Math.random() * colors.length)];
+      conf.style.width = (8 + Math.random() * 8) + 'px';
+      conf.style.height = (8 + Math.random() * 8) + 'px';
+      conf.style.animationDuration = (2 + Math.random() * 1.5) + 's';
+      conf.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+      document.body.appendChild(conf);
+      setTimeout(() => conf.remove(), 4000);
+    }, i * 20);
+  }
+}
+
+/* ============================================================
+   REVEAL + NAV
+============================================================ */
+function setupReveal() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}
+
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+/* ============================================================
+   INIT
+============================================================ */
+document.addEventListener('DOMContentLoaded', () => {
+  renderVocab();
+  renderFalsos();
+  renderRoleplay();
+  renderMatching();
+  renderPronunciation();
+  renderQuiz();
+  setupReveal();
+});
+</script>
+
+</body>
+</html>
